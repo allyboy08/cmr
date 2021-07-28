@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@@=rh1qkq__&+$r!z*o7at*)x@=_trt+dkz=1dy#kt&j6t#@^%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['django-livecrm1.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['django-livecrm1.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    # 'whitenoise.middleware.WhiteNoiseMiddleware'
     
     
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -94,6 +95,9 @@ DATABASES = {
         # 'PORT': '5432'
     }
 }
+# import dj_database_url 
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
