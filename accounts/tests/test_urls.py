@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from accounts.views import home, userPage, accountSettings, registerPage, loginPage, logoutUser, products, customer
+from accounts.views import home, userPage, accountSettings, registerPage, loginPage, logoutUser, products, customer, createOrder, updateOrder, deleteOrder
 
 
 
@@ -42,7 +42,22 @@ class TestUrls(SimpleTestCase):
         print(resolve(url))
         self.assertEquals(resolve(url).func, products)
         
-    # def test_customer_url(self):
-    #     url = reverse('customer', args=['id'])
-    #     print(resolve(url))
-    #     self.assertEquals(resolve(url).func, customer)
+    def test_customer_url(self):
+        url = reverse('customer', args=['id'])
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, customer)
+        
+    def test_create_order_url(self):
+        url = reverse('create_order', args=['id'])
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, createOrder)
+        
+    def test_update_order_url(self):
+        url = reverse('update_order', args=['id'])
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, updateOrder)
+        
+    def test_delete_order_url(self):
+        url = reverse('delete_order', args=['id'])
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, deleteOrder)
