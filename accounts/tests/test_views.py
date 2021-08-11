@@ -16,7 +16,7 @@ class TestViews(TestCase):
         )
         
     
-    def test_home_GET(self):
+    def test_register_GET(self):
         
         response = self.client.get(self.home_url)
         
