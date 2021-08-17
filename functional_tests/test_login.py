@@ -56,6 +56,9 @@ class TestLogin(StaticLiveServerTestCase):
         # username_inputbox.send_keys(Keys.submit)
         
         
+        
+        
+   
     
     # def test_sign_up_link_redirects_to_sign_up_page(self):
     #     self.browser.get(self.live_server_url)
@@ -68,21 +71,7 @@ class TestLogin(StaticLiveServerTestCase):
     #         register_url
     #     )
         
-    # def test_user_signs_up(self):
-    #     self.send_keys('form-control input', 'dennis1')
-    #     self.send_keys('form-control input', 'bobross21')
-    #     self.browser.get(self.live_server_url)
-        
-    #     # login_url = self.live_server_url + reverse('home')
-    #     # self.browser.find_element_by_tag_name('input').click()
-    #     # login_url = self.live_server_url + reverse('home')
-        
-    #     self.browser.find_element_by_class_name('login_btn').click()
-    #     # form = self.browser.find_element_by_class_name('col-md-5')
-    #     self.assertEquals(
-    #         form.find_element_by_tag_name('h5').text,
-    #         'CUSTOMERS:'
-    #     )
+    
         
     
     
