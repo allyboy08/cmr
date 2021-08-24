@@ -132,6 +132,7 @@ from accounts.models import Customer
 from accounts.forms import OrderForm, CreateUserForm, CustomerForm
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.test import LiveServerTestCase
 from django.urls import reverse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -143,22 +144,22 @@ import time
 class TestLogin(TransactionTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome("/Users/allyboy08/Downloads/chromedriver_win32/chromedriver")
-        self.browser.get("http://127.0.0.1:8000/")
+        self.browser.get("https://django-livecrm1.herokuapp.com/")
         
     
-    def test_register(self):
+    def test_register_and_login(self):
         self.regLink = self.browser.find_element_by_class_name("ml-2")
         
         self.regLink.click()
         try:
             self.username = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "id_username")))
-            self.username.send_keys("okay2")
+            self.username.send_keys("okay5")
             self.email = self.browser.find_element_by_id("id_email")
-            self.email.send_keys("testing5@gmail.com")
+            self.email.send_keys("testing8@gmail.com")
             self.password1 = self.browser.find_element_by_id("id_password1")
-            self.password1.send_keys("working3")
+            self.password1.send_keys("working6")
             self.password2 = self.browser.find_element_by_id("id_password2")
-            self.password2.send_keys("working3")
+            self.password2.send_keys("working6")
             
         except Exception as err:
             print(err)
@@ -171,8 +172,10 @@ class TestLogin(TransactionTestCase):
             print(err)
         
         # time.sleep(20)
-    
 
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
         username_input = self.browser.find_element_by_name('username')
         password_input = self.browser.find_element_by_name('password')
         
@@ -180,8 +183,8 @@ class TestLogin(TransactionTestCase):
         submit_btn = self.browser.find_element_by_class_name('login_btn')
         
         
-        username_input.send_keys('okay2')
-        password_input.send_keys('working3')
+        username_input.send_keys('okay5')
+        password_input.send_keys('working6')
         
         
        
@@ -189,5 +192,26 @@ class TestLogin(TransactionTestCase):
         
         time.sleep(5)
         
+    def test_settings(self):
         
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
+        username_input = self.browser.find_element_by_name('username')
+        password_input = self.browser.find_element_by_name('password')
+        
+        
+        submit_btn = self.browser.find_element_by_class_name('login_btn')
+        
+        
+        username_input.send_keys('okay5')
+        password_input.send_keys('working6')
+        
+
+        submit_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+        
+        time.sleep(10)
+    
     
