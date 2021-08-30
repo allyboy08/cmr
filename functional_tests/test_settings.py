@@ -64,3 +64,84 @@ class TestSettings(TransactionTestCase):
             self.setButton.click()
         except Exception as err:
             print(err)
+            
+    
+    
+    def test_settings_form_input(self):
+        
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
+        username_input = self.browser.find_element_by_name('username')
+        password_input = self.browser.find_element_by_name('password')
+        
+        
+        submit_btn = self.browser.find_element_by_class_name('login_btn')
+        
+        
+        username_input.send_keys('okay9')
+        password_input.send_keys('working8')
+        
+
+        submit_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+        
+        phone_input = self.browser.find_element_by_id("id_phone")
+        email_input = self.browser.find_element_by_id("id_email")
+        
+        phone_input.send_keys('1234567890')
+        email_input.send_keys('testing01@gmail.com')
+        
+        edit_btn = self.browser.find_element_by_class_name('btn-primary')
+        edit_btn.click()
+        # time.sleep(5)
+        
+        
+    
+   
+   
+    def test_settings_form_input_changes(self):
+        
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
+        username_input = self.browser.find_element_by_name('username')
+        password_input = self.browser.find_element_by_name('password')
+        
+        
+        submit_btn = self.browser.find_element_by_class_name('login_btn')
+        
+        
+        
+        username_input.send_keys('okay9')
+        password_input.send_keys('working8')
+        
+
+        submit_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+        
+        phone_input = self.browser.find_element_by_id("id_phone").clear()
+        email_input = self.browser.find_element_by_id("id_email").clear()
+        
+        phone_input = self.browser.find_element_by_id("id_phone")
+        email_input = self.browser.find_element_by_id("id_email")
+        
+        phone_input.send_keys('1234567890')
+        email_input.send_keys('testing01@gmail.com')
+        
+        edit_btn = self.browser.find_element_by_class_name('btn-primary')
+        edit_btn.click()
+        
+        back_btn = self.browser.find_element_by_class_name('btn-warning')
+        back_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+       
+       
+        
+    
+    
+    
+    
