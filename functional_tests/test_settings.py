@@ -140,6 +140,40 @@ class TestSettings(TransactionTestCase):
         self.browser.find_element_by_class_name("nav-link").click()
        
        
+       
+    def test_settings_form_input_image(self):
+        
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
+        username_input = self.browser.find_element_by_name('username')
+        password_input = self.browser.find_element_by_name('password')
+        
+        
+        submit_btn = self.browser.find_element_by_class_name('login_btn')
+        
+        
+        
+        username_input.send_keys('okay9')
+        password_input.send_keys('working8')
+        
+
+        submit_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+        
+        image_input = self.browser.find_element_by_xpath("//input[@type='file']")
+        
+        image_input.send_keys("/Users/allyboy08/Pictures/test.jpg")
+        
+        
+        edit_btn = self.browser.find_element_by_class_name('btn-primary')
+        edit_btn.click()
+        
+        back_btn = self.browser.find_element_by_class_name('btn-warning')
+        back_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
         
     
     
