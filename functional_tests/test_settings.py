@@ -162,9 +162,9 @@ class TestSettings(TransactionTestCase):
         
         self.browser.find_element_by_class_name("nav-link").click()
         
-        image_input = self.browser.find_element_by_xpath("//input[@type='file']")
-        
-        image_input.send_keys("/Users/allyboy08/Pictures/test.jpg")
+        image_input = self.browser.find_element_by_id("id_profile_pic")
+        # self.browser.execute_script("arguments[0].style.display = 'block';", image_input)
+        image_input.send_keys("C:/Users/allyboy08/Pictures/test.jpg")
         
         
         edit_btn = self.browser.find_element_by_class_name('btn-primary')
@@ -178,4 +178,4 @@ class TestSettings(TransactionTestCase):
     
     
     
-    
+    # <input type="checkbox" name="profile_pic-clear" id="profile_pic-clear_id">
