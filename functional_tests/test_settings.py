@@ -177,5 +177,37 @@ class TestSettings(TransactionTestCase):
         
     
     
-    
+    def test_settings_form_input_clear_image(self):
+        
+        form = self.browser.find_element_by_tag_name('h3').text,
+        self.assertIn('LOGIN', form)
+        
+        username_input = self.browser.find_element_by_name('username')
+        password_input = self.browser.find_element_by_name('password')
+        
+        
+        submit_btn = self.browser.find_element_by_class_name('login_btn')
+        
+        
+        
+        username_input.send_keys('okay9')
+        password_input.send_keys('working8')
+        
+
+        submit_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
+        
+        self.browser.find_element_by_name("profile_pic-clear").click()
+        # self.browser.execute_script("arguments[0].style.display = 'block';", image_input)
+        # image_input.send_keys("C:/Users/allyboy08/Pictures/test.jpg")
+        
+        
+        edit_btn = self.browser.find_element_by_class_name('btn-primary')
+        edit_btn.click()
+        
+        back_btn = self.browser.find_element_by_class_name('btn-warning')
+        back_btn.click()
+        
+        self.browser.find_element_by_class_name("nav-link").click()
     # <input type="checkbox" name="profile_pic-clear" id="profile_pic-clear_id">
