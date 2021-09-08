@@ -7,8 +7,8 @@
 		<div class="card card-body">
             <form action="" method="POST">
                 {% csrf_token %}
-                {{ formset.management_form}}
-                {% for form in formset %}
+                {{ form.management_form}}
+                {% for form in form %}
                     {{form}}
                     <hr>
                 {% endfor %}
