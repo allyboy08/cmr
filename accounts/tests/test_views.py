@@ -3,7 +3,7 @@
 
 from django.test import TestCase, Client
 from django.urls import reverse
-from accounts.models import Customer
+from accounts.models import Customer, User
 import json
 
 class TestViews(TestCase):
@@ -11,7 +11,7 @@ class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
         self.register_url = reverse('register')
-        self.customer1 = Customer.objects.create(
+        self.customer1 = User.objects.create(
             user='bob',
             name='kevin',
             phone='0123456789',
