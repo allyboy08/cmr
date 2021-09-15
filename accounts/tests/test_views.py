@@ -19,7 +19,7 @@ class TestViews(TestCase):
         )
         
     
-    def test_view_register_page(self):
+    def test_views_register_page(self):
         
         response = self.client.get(self.register_url)
         
